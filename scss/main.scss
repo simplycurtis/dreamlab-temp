@@ -1,0 +1,109 @@
+//vars 
+$light:       #fff;
+$dark:        #231f20;
+
+$dark-blue:   #a6c2e1;
+$dark-green:  #c5dc7a;
+$dark-teal:   #a2d8cb;
+
+$light-blue:  #96b3dc;
+$light-green: #e2eba6;
+$light-teal:  #c3e5de;
+
+//mixins 
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin box-sizing() {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+@mixin centerMe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin centerText {
+  display: block; 
+  margin: auto; 
+  text-align: center;
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+
+//fonts
+@font-face {
+    font-family: 'moonlight';
+    src: url('fonts/moon_light-webfont.woff2') format('woff2'),
+         url('fonts/moon_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'moonbold';
+  src: url('fonts/moon_bold-webfont.woff2') format('woff2'),
+       url('fonts/moon_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//styles 
+body { 
+  font-family: 'moonlight', sans-serif; 
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.container {
+  z-index: 200;
+  width: 80%;
+  max-width: 500px;
+  @include centerMe;
+} 
+h1 {
+  @include centerText;
+  font-size: 30px; 
+  margin-bottom: 12px; 
+  font-family: 'moonlight', sans-serif;
+  max-width: 400px;
+  
+}
+p { 
+  font-size: 22px; 
+  @include centerText;
+  font-family: 'Neuton', serif;
+  max-width: 400px;
+  margin-bottom: 18px; 
+}
+.t-small {
+  @extend p; 
+  font-size: 18px; 
+}
+.logoContainer {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  .logo {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 38%;
+    margin: 0 auto 24px;
+    background: url('img/logo.svg') no-repeat 50% 50%;
+  }
+}
